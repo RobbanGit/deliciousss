@@ -1,6 +1,8 @@
 function Veggie() {
   return (
-    <div>Veggie</div>
+    <div>
+      <h3 style={{textAlign:"center", fontWeight:"bold", textDecorationLine:"underline"}}>Veggie</h3>
+      </div>
   )
 }
 
