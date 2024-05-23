@@ -1,9 +1,85 @@
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+import { Splide, SplideSlide } from "@splidejs/react-splide"
+import "@splidejs/splide/dist/css/splide.min.css";
+import { CgEnter } from "react-icons/cg";
+
+
+
 function Veggie() {
+
+
+  const [veggie, setVeggie] = useState([]);
+
+  useEffect(() => {
+    getVeggie();
+  }, []);
+
+  const getVeggie = async () => {
+    //Items = recipes
+    const checkIfItemsAlreadyStored = localStorage.getItem('veggie');
+
+    if (checkIfItemsAlreadyStored){
+      setVeggie(JSON.parse(checkIfItemsAlreadyStored));
+    } else {
+      const api = await fetch(
+        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9&tags=vegetarian`
+      );
+      const data = await api.json();
+      localStorage.setItem('veggie', JSON.stringify(data.recipes));
+      setVeggie(data.recipes);
+    }
+  };
+
   return (
     <div>
-      <h3 style={{textAlign:"center", fontWeight:"bold", textDecorationLine:"underline"}}>Veggie</h3>
-      </div>
+      <Wrapper>
+        <h3 style={{textAlign:"center", fontWeight:"bold", textDecorationLine:"underline"}}>Vegetarian Recipes</h3>
+
+        <Splide options={{
+          perPage: 3,
+          arrows: true,
+          pagination: true,
+          snap: true,
+          rewind: true,
+          rewindByDrag: true,
+          autoplay: true,
+          interval: 3000,
+          gap: '5rem'
+        }}>
+
+          {veggie.map((item) => {
+            return (
+              <SplideSlide key={item.id}>
+                <Card>
+                  <p style={{textAlign:"center", fontWeight:"bold"}}>{item.title}</p>
+                  <img src={item.image} alt={item.title} />
+                </Card>
+              </SplideSlide>
+            )
+          })}
+
+        </Splide>
+      </Wrapper>
+    </div>
   )
 }
+
+const Wrapper = styled.div`
+  margin: 4rem 0rem;
+`
+
+const Card = styled.div`
+  min-height: 25rem;
+  border-radius: 2rem;
+  overflow: hidden;
+  max-width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+
+  img{
+    border-radius: 2rem;
+  }
+`
 
 export default Veggie
