@@ -27,7 +27,7 @@ function Popular() {
       localStorage.setItem('popular', JSON.stringify(data.recipes));
       setPopular(data.recipes);
     }
-  }
+  };
 
 
   return (
