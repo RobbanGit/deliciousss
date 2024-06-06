@@ -25,9 +25,15 @@ function Category() {
                 </NavLink>
             </ListElement>
             <ListElement>
-                <NavLink to={'/cuisine/japanesekorean'}>
+                <NavLink to={'/cuisine/japanese'}>
                     <GiChopsticks />
-                    <h4>Japanese & Korean</h4>
+                    <h4>Japanese</h4>
+                </NavLink>
+            </ListElement>
+            <ListElement>
+                <NavLink to={'/cuisine/korean'}>
+                    <GiChopsticks />
+                    <h4>Korean</h4>
                 </NavLink>
             </ListElement>
         </List>
