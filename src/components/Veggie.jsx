@@ -34,7 +34,7 @@ function Veggie() {
   return (
     <div>
       <Wrapper>
-        <h3 style={{textAlign:"center", fontWeight:"bold", textDecorationLine:"underline"}}>Vegetarian Recipes</h3>
+        <h3 style={{textAlign:"center", fontWeight:"bold", textDecorationLine:"underline", paddingBottom:"1rem"}}>Vegetarian Recipes</h3>
 
         <Splide options={{
           perPage: 3,
