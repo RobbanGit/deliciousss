@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Splide, SplideSlide } from "@splidejs/react-splide"
 import "@splidejs/splide/dist/css/splide.min.css";
 import { CgEnter } from "react-icons/cg";
+import { Link } from "react-router-dom";
 
 
 function Popular() {
@@ -51,8 +52,10 @@ function Popular() {
             return (
               <SplideSlide key={item.id}>
                 <Card>
+                <Link to={"/recipe/"+item.id}>
                   <p style={{textAlign:"center", fontWeight:"bold"}}>{item.title}</p>
                   <img src={item.image} alt={item.title} />
+                  </Link>
                 </Card>
               </SplideSlide>
             )
