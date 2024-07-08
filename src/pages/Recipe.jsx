@@ -26,7 +26,7 @@ function Recipe() {
     return (
         <div>
             <Card>
-                <p style={{ textAlign: "center", fontWeight: "bold" }}>{details.title}</p>
+                <h3 style={{ textAlign: "center", fontWeight: "bold" }}>{details.title}</h3>
                 <img src={details.image} alt={details.title} />
                 <p >Servings: {JSON.stringify(details.servings)} &emsp; | &emsp; Time:
                     {JSON.stringify(details.readyInMinutes) < 30 ? (
@@ -42,6 +42,7 @@ function Recipe() {
             </Card>
 
             <DetailsTable>
+                <h3>Information</h3>
                 <tbody>
                 <tr>
                     <th>Vegetarian:</th>
@@ -72,7 +73,6 @@ function Recipe() {
 
 const Card = styled.div`
   min-height: 25rem;
-  border-radius: 2rem;
   overflow: hidden;
   max-width: fit-content;
   margin-left: auto;
@@ -85,6 +85,9 @@ const Card = styled.div`
   p{
     text-align: center;
   }
+  h2{
+    text-align: left;
+  }
 `
 
 const DetailsTable = styled.table`
@@ -94,7 +97,13 @@ const DetailsTable = styled.table`
     float: right;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+
+    h3{
+        text-align: center;
+        margin-bottom: 0.5rem;
+        text-decoration: underline solid;
+    }
 `
 
 export default Recipe
