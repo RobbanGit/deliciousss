@@ -142,17 +142,13 @@ function Recipe() {
 
                 {activeTab === 'summary' && (
                     <SummaryCard>
-                        <h3>Summary</h3>
                         <p>{summary}</p>
                     </SummaryCard>
                 )}
 
                 {activeTab === 'ingredients' && (
                     <IngredientsCard>
-                        <h3>Ingredients</h3>
-                        <ul>
-                            {ingredients}
-                        </ul>
+                        <ul>{ingredients}</ul>
                     </IngredientsCard>
                 )}
                 </div>
@@ -161,7 +157,7 @@ function Recipe() {
             </div>
             <div className='container' style={{ display: "flex", justifyContent: "center" }}>
                 <InstructionsCard>
-                    <h3>Steps</h3>
+                    <h3>Instructions</h3>
                     {instructions}
                 </InstructionsCard>
             </div>
@@ -249,6 +245,10 @@ const Button = styled.button`
 
 const Info = styled.div`
     margin-left: 10rem;
+
+    .active{
+        background-color: grey;
+    }
 `
 
 
